@@ -21,7 +21,15 @@
   },
   "homepage": "https://github.com/pandoraizida/qa-auto-engineer-javascript-project-87#readme",
   "dependencies": {
+    "airbnb-style": "^2.0.0",
     "commander": "^12.1.0",
     "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@eslint/create-config": "^1.0.0",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "globals": "^15.12.0",
+    "jest": "^29.7.0"
   }
 }
