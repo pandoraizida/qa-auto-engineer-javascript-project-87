@@ -5,7 +5,7 @@ help:
 	node bin/gendiff -h
 
 gendiff:
-	node ./bin/gendiff file1.json file2.json
+	node ./bin/gendiff file1.yaml file2.yaml
 
 publish:
 	npm publish --dry-run

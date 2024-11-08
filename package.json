@@ -4,11 +4,12 @@
   "description": "[![Actions Status](https://github.com/pandoraizida/qa-auto-engineer-javascript-project-87/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/pandoraizida/qa-auto-engineer-javascript-project-87/actions)",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "bin": {
     "gendiff -h": "bin/gendiff.js",
-    "gendiff file1.json file2.json": "bin/gendiff.js"
+    "gendiff file1.json file2.json": "bin/gendiff.js",
+    "gendiff file1.yaml file2.yaml": "bin/gendiff.js"
   },
   "repository": {
     "type": "git",
