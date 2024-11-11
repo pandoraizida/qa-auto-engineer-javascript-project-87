@@ -4,7 +4,10 @@ install:
 help:
 	node bin/gendiff -h
 
-gendiff:
+gendiff1:
+	node ./bin/gendiff --format plain file1.yaml file2.yaml
+
+gendiff2:
 	node ./bin/gendiff file1.yaml file2.yaml
 
 publish:
@@ -17,4 +20,4 @@ test:
 	NODE_OPTIONS=--experimental-vm-modules npx jest
 
 test-coverage:
-	NODE_OPTIONS=--experimental-vm-modules npx jest -- --coverage --coverageProvider=v8
+	NODE_OPTIONS=--experimental-vm-modules npx jest --coverage

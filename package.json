@@ -9,7 +9,8 @@
   "bin": {
     "gendiff -h": "bin/gendiff.js",
     "gendiff file1.json file2.json": "bin/gendiff.js",
-    "gendiff file1.yaml file2.yaml": "bin/gendiff.js"
+    "gendiff file1.yaml file2.yaml": "bin/gendiff.js",
+    "gendiff --format plain file1.yaml file2.yaml": "bin/gendiff.js"
   },
   "repository": {
     "type": "git",
