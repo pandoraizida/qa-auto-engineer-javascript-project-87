@@ -1,6 +1,6 @@
-import parceToObject from './parsers.js';
+import parceToObject from '../src/parsers.js';
 
-const genDiff = (file1, file2) => {
+const getReportDefault = (file1, file2) => {
   const obj1 = parceToObject(file1);
   const obj2 = parceToObject(file2);
   const report = [];
@@ -27,8 +27,8 @@ const genDiff = (file1, file2) => {
 
   report.push('}');
   const result = report.join('\n');
-  console.log(result);
+  // console.log(result);
   return result;
 };
 
-export default genDiff;
+export default getReportDefault;
