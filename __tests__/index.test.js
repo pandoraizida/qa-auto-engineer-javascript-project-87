@@ -15,7 +15,12 @@ test('if format equal plain', () => {
   expect(genDiff('file1.json', 'file2.json', { format: 'plain' })).toEqual(expected);
 });
 
-test('if format is not equal plain', () => {
+test('if format equal json', () => {
+  const expected = readFixtureFile('ifExpectedJson.txt').trim();
+  expect(genDiff('file1.json', 'file2.json', { format: 'json' })).toEqual(expected);
+});
+
+test('if format is not equal plain or json', () => {
   const expected = readFixtureFile('ifExpected.txt').trim();
   expect(genDiff('file1.json', 'file2.json', { format: 'kokoko' })).toEqual(expected);
 });

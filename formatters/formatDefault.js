@@ -5,7 +5,6 @@ const getReportDefault = (file1, file2) => {
   const obj2 = parceToObject(file2);
   const report = [];
   report.push('{');
-
   Object.keys(obj1).forEach((etalonKey) => {
     if (!Object.hasOwn(obj2, etalonKey)) {
       report.push(`- ${etalonKey}: ${obj1[etalonKey]}`);
@@ -24,10 +23,8 @@ const getReportDefault = (file1, file2) => {
     }
     report.push(`  ${key}: ${obj2[key]}`);
   });
-
   report.push('}');
   const result = report.join('\n');
-  // console.log(result);
   return result;
 };
 
