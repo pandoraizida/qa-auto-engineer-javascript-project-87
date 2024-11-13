@@ -7,24 +7,24 @@ const getReportJson = (file1, file2) => {
 
   Object.keys(obj1).forEach((etalonKey) => {
     if (!Object.hasOwn(obj2, etalonKey)) {
-      report[`- ${etalonKey}`] = `${obj1[etalonKey]}`;
+      report[`${etalonKey}`] = 'was removed';
     }
   });
 
   Object.keys(obj2).forEach((key) => {
     if (!Object.hasOwn(obj1, key)) {
-      report[`+ ${key}`] = `${obj2[key]}`;
+      report[`${key}`] = `added with value: <${obj2[key]}>`;
       return;
     }
     if (obj1[key] !== obj2[key]) {
-      report[`- ${key}`] = `${obj1[key]}`;
-      report[`+ ${key}`] = `${obj2[key]}`;
+      report[`${key}`] = `was updated from ${obj1[key]} to ${obj2[key]}`;
       return;
     }
-    report[`  ${key}`] = `${obj2[key]}`;
+    report[`${key}`] = 'was unchanged';
   });
 
   const result = JSON.stringify(report);
+  console.log(result);
   return result;
 };
 

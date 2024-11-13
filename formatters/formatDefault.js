@@ -25,6 +25,7 @@ const getReportDefault = (file1, file2) => {
   });
   report.push('}');
   const result = report.join('\n');
+  console.log(result);
   return result;
 };
 

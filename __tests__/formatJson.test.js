@@ -26,7 +26,7 @@ test('check diff between json and yaml files', () => {
 });
 
 test('check diff if the second file is empty json', () => {
-  const expected = readFixtureFile('isEmptySecondFileJson.txt').trim();
+  const expected = readFixtureFile('ifEmptySecondFileJson.txt').trim();
   expect(getReportJson('file1.yaml', 'empty.json')).toEqual(expected);
 });
 
@@ -38,4 +38,9 @@ test('check diff if the first file is empty json', () => {
 test('check diff if both files have the same content', () => {
   const expected = readFixtureFile('ifSameContentJson.txt').trim();
   expect(getReportJson('same.yml', 'file1.json')).toEqual(expected);
+});
+
+test('check that result of diff is string', () => {
+  const result = getReportJson('file1.json', 'file2.json');
+  expect(typeof (result)).toEqual('string');
 });

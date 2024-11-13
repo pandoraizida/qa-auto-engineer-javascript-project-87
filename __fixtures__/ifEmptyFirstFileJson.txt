@@ -1,1 +1,1 @@
-{"+ timeout":"20","+ verbose":"true","+ host":"hexlet.io"}
+{"timeout":"added with value: <20>","verbose":"added with value: <true>","host":"added with value: <hexlet.io>"}

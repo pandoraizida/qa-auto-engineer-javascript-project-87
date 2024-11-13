@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/pandoraizida/qa-auto-engineer-javascript-project-87/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/pandoraizida/qa-auto-engineer-javascript-project-87/actions)",
   "type": "module",
+  "main": "gendiff.js",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
   },

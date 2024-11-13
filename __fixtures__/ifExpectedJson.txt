@@ -1,1 +1,1 @@
-{"- proxy":"123.234.53.22","- follow":"false","- timeout":"50","+ timeout":"20","+ verbose":"true","  host":"hexlet.io"}
+{"proxy":"was removed","follow":"was removed","timeout":"was updated from 50 to 20","verbose":"added with value: <true>","host":"was unchanged"}
