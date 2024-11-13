@@ -2,25 +2,22 @@ import createBasis from '../createBasis.js';
 
 const getReportJson = (obj1, obj2) => {
   const basis = createBasis(obj1, obj2);
-  const report = {};
-  basis.forEach((basisLine) => {
+
+  const report = basis.reduce((acc, basisLine) => {
     switch (basisLine.type) {
       case 'added':
-        report[basisLine.key] = `added with value: <${basisLine.value}>`;
-        break;
+        return { ...acc, [basisLine.key]: `added with value: <${basisLine.value}>` };
       case 'removed':
-        report[basisLine.key] = 'was removed';
-        break;
+        return { ...acc, [basisLine.key]: 'was removed' };
       case 'updated':
-        report[basisLine.key] = `was updated from <${basisLine.valueOld}> to <${basisLine.valueNew}>`;
-        break;
+        return { ...acc, [basisLine.key]: `was updated from <${basisLine.valueOld}> to <${basisLine.valueNew}>` };
       case 'unchanged':
-        report[basisLine.key] = 'was unchanged';
-        break;
+        return { ...acc, [basisLine.key]: 'was unchanged' };
       default:
         throw new Error('unknown changing');
     }
-  });
+  }, {});
+
   return JSON.stringify(report);
 };
 
