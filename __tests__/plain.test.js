@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { expect, test } from '@jest/globals';
-import getReportPlain from '../formatters/formatPlain.js';
+import getReportPlain from '../src/formatters/plain.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

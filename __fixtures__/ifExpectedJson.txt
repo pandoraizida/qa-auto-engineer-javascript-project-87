@@ -1,1 +1,1 @@
-{"proxy":"was removed","follow":"was removed","timeout":"was updated from 50 to 20","verbose":"added with value: <true>","host":"was unchanged"}
+{"follow":"was removed","host":"was unchanged","proxy":"was removed","timeout":"was updated from <50> to <20>","verbose":"added with value: <true>"}

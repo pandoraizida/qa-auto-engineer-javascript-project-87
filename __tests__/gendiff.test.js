@@ -12,26 +12,26 @@ const readFixtureFile = (filename) => fs.readFileSync(getFixturePath(filename), 
 
 test('if format equal plain', () => {
   const expected = readFixtureFile('ifExpectedPlain.txt').trim();
-  expect(genDiff('file1.json', 'file2.json', 'plain')).toEqual(expected);
+  expect(genDiff('./__fixtures__/file1.json', './__fixtures__/file2.json', 'plain')).toEqual(expected);
 });
 
 test('if format equal json', () => {
   const expected = readFixtureFile('ifExpectedJson.txt').trim();
-  expect(genDiff('file1.json', 'file2.json', 'json')).toEqual(expected);
+  expect(genDiff('./__fixtures__/file1.json', './__fixtures__/file2.json', 'json')).toEqual(expected);
 });
 
 test('if format is default', () => {
   const expected = readFixtureFile('ifExpected.txt').trim();
-  expect(genDiff('file1.json', 'file2.json', 'default')).toEqual(expected);
+  expect(genDiff('./__fixtures__/file1.json', './__fixtures__/file2.json', 'default')).toEqual(expected);
 });
 
 test('if format is not equal plain or json', () => {
   const expected = readFixtureFile('ifExpected.txt').trim();
-  expect(genDiff('file1.json', 'file2.json', 'kokoko')).toEqual(expected);
+  expect(genDiff('./__fixtures__/file1.json', './__fixtures__/file2.json', 'kokoko')).toEqual(expected);
 });
 
 test('if format is missed', () => {
   const expected = readFixtureFile('ifExpected.txt').trim();
-  const a = genDiff('file1.json', 'file2.json');
+  const a = genDiff('./__fixtures__/file1.json', './__fixtures__/file2.json');
   expect(a).toEqual(expected);
 });

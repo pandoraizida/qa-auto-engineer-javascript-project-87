@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { expect, test } from '@jest/globals';
-import getReportDefault from '../formatters/formatDefault.js';
+import createBasis from '../src/createBasis.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,10 +24,6 @@ const obj2 = {
 };
 
 test('check diff between json files', () => {
-  const expected = readFixtureFile('ifExpected.txt').trim();
-  expect(getReportDefault(obj1, obj2)).toEqual(expected);
-});
-
-test('check that result of diff is string', () => {
-  expect(typeof (getReportDefault(obj1, obj2))).toEqual('string');
+  const expected = readFixtureFile('basis.txt').trim();
+  expect(createBasis(obj1, obj2)).toEqual(JSON.parse(expected));
 });

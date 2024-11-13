@@ -1,4 +1,4 @@
-Property 'proxy' was removed
 Property 'follow' was removed
-Property 'timeout' was updated. From 50 to 20
+Property 'proxy' was removed
+Property 'timeout' was updated from 50 to 20
 Property 'verbose' added with value: true
