@@ -6,13 +6,13 @@ const getReportPlain = (obj1, obj2) => {
   basis.forEach((basisLine) => {
     switch (basisLine.type) {
       case 'added':
-        report.push(`Property '${basisLine.key}' added with value: ${basisLine.value}`);
+        report.push(`Property '${basisLine.key}' was added with value: ${basisLine.value}`);
         break;
       case 'removed':
         report.push(`Property '${basisLine.key}' was removed`);
         break;
       case 'updated':
-        report.push(`Property '${basisLine.key}' was updated from ${basisLine.valueOld} to ${basisLine.valueNew}`);
+        report.push(`Property '${basisLine.key}' was updated. From ${basisLine.valueOld} to ${basisLine.valueNew}`);
         break;
       case 'unchanged':
         break;
