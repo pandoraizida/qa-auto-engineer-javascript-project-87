@@ -2,7 +2,7 @@ install:
 	npm ci
 
 help:
-	node bin/gendiff -h
+	node ./bin/gendiff -h
 
 gendiff1:
 	node ./bin/gendiff file1.yaml file2.yaml
