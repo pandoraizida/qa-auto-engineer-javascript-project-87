@@ -1,13 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import yaml from 'js-yaml';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const getFilePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
-export const readFile = (filename) => fs.readFileSync(getFilePath(filename), 'utf-8');
+import { cwd } from 'node:process';
 
 const getFileExtension = (filename) => {
   const extension = path.extname(filename);
@@ -16,16 +10,20 @@ const getFileExtension = (filename) => {
 
 const parceToObject = (file) => {
   const format = getFileExtension(file);
-
+  console.log(`Current directory: ${cwd()}`);
+  const filepath = file;
+  // const filepath = path.resolve(`${cwd()}`, '__fixtures__', file);
   if (format === '.json') {
     try {
-      return JSON.parse(readFile(file));
+      // return JSON.parse(readFile(file));
+      return JSON.parse(fs.readFileSync(filepath, 'utf-8'));
     } catch (e) {
       throw new Error('Invalid JSON');
     }
   } if (format === '.yaml' || format === '.yml') {
     try {
-      return yaml.load(readFile(file));
+      // return yaml.load(readFile(file));
+      return yaml.load(fs.readFileSync(filepath, 'utf-8'));
     } catch (e) {
       console.log(e);
       console.log(file);
