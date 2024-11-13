@@ -27,10 +27,11 @@ const parceToObject = (file) => {
     try {
       return yaml.load(readFile(file));
     } catch (e) {
+      console.log(e);
+      console.log(file);
       throw new Error('Invalid YAML');
     }
   }
-  console.log(format);
   throw new Error('Unsupported file format');
 };
 
