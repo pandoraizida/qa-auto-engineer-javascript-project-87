@@ -22,7 +22,7 @@ test('if format equal json', () => {
 
 test('if format is default', () => {
   const expected = readFixtureFile('ifExpected.txt').trim();
-  expect(genDiff('./__fixtures__/file1.json', './__fixtures__/file2.json', 'default')).toEqual(expected);
+  expect(genDiff('./__fixtures__/file1.json', './__fixtures__/file2.json', 'stylish')).toEqual(expected);
 });
 
 test('if format is not equal plain or json', () => {

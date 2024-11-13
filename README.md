@@ -13,7 +13,7 @@ json, yaml, yml
 ### Supported comparison report formats
 plain, json
 
-Without adding report format you get the omparison report in default format
+Without adding report format you get the comparison report in default format
 
 ### Commands to get comparison reports
 **gendiff file1.json file2.json**
