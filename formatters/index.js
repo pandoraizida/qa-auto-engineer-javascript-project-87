@@ -1,6 +1,6 @@
-import getReportDefault from './formatters/formatDefault.js';
-import getReportPlain from './formatters/formatPlain.js';
-import getReportJson from './formatters/formatJson.js';
+import getReportDefault from './formatDefault.js';
+import getReportPlain from './formatPlain.js';
+import getReportJson from './formatJson.js';
 
 const genDiff = (file1, file2, format) => {
   const formatName = format.format;
