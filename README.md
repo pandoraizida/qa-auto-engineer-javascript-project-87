@@ -12,11 +12,14 @@ json, yaml, yml
 
 ### Supported comparison report formats
 plain, json
+
 Without adding report format you get the omparison report in default format
 
 ### Commands to get comparison reports
 **gendiff file1.json file2.json**
+
 **gendiff --format plain file1.yaml file2.yaml**
+
 **gendiff --format json file1.yaml file2.yaml**
  
 ### Run tests

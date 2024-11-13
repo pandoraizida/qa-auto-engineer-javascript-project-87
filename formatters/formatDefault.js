@@ -1,8 +1,4 @@
-import parceToObject from '../src/parsers.js';
-
-const getReportDefault = (file1, file2) => {
-  const obj1 = parceToObject(file1);
-  const obj2 = parceToObject(file2);
+const getReportDefault = (obj1, obj2) => {
   const report = [];
   report.push('{');
   Object.keys(obj1).forEach((etalonKey) => {
@@ -24,9 +20,7 @@ const getReportDefault = (file1, file2) => {
     report.push(`  ${key}: ${obj2[key]}`);
   });
   report.push('}');
-  const result = report.join('\n');
-  console.log(result);
-  return result;
+  return report.join('\n');
 };
 
 export default getReportDefault;

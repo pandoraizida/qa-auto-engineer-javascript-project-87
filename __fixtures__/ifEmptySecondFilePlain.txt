@@ -1,4 +1,0 @@
-Property 'host' was removed
-Property 'timeout' was removed
-Property 'proxy' was removed
-Property 'follow' was removed

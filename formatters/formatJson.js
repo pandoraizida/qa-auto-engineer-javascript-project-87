@@ -1,8 +1,4 @@
-import parceToObject from '../src/parsers.js';
-
-const getReportJson = (file1, file2) => {
-  const obj1 = parceToObject(file1);
-  const obj2 = parceToObject(file2);
+const getReportJson = (obj1, obj2) => {
   const report = {};
 
   Object.keys(obj1).forEach((etalonKey) => {
@@ -23,9 +19,7 @@ const getReportJson = (file1, file2) => {
     report[`${key}`] = 'was unchanged';
   });
 
-  const result = JSON.stringify(report);
-  console.log(result);
-  return result;
+  return JSON.stringify(report);
 };
 
 export default getReportJson;

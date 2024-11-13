@@ -3,16 +3,12 @@
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/pandoraizida/qa-auto-engineer-javascript-project-87/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/pandoraizida/qa-auto-engineer-javascript-project-87/actions)",
   "type": "module",
-  "main": "gendiff.js",
+  "main": "src/gendiff.js",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
   },
   "bin": {
-    "gendiff -h": "bin/gendiff.js",
-    "gendiff file1.json file2.json": "bin/gendiff.js",
-    "gendiff file1.yaml file2.yaml": "bin/gendiff.js",
-    "gendiff --format plain file1.yaml file2.yaml": "bin/gendiff.js",
-    "gendiff --format json file1.yaml file2.yaml": "bin/gendiff.js"
+    "gendiff": "bin/gendiff.js"
   },
   "repository": {
     "type": "git",

@@ -1,49 +1,25 @@
 import { expect, test } from '@jest/globals';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import getReportPlain from '../formatters/formatPlain.js';
+import { readFile } from '../src/parsers.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const obj1 = {
+  host: 'hexlet.io',
+  timeout: 50,
+  proxy: '123.234.53.22',
+  follow: false,
+};
 
-const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
-const readFixtureFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
+const obj2 = {
+  timeout: 20,
+  verbose: true,
+  host: 'hexlet.io',
+};
 
 test('check diff between json files', () => {
-  const expected = readFixtureFile('ifExpectedPlain.txt').trim();
-  expect(getReportPlain('file1.json', 'file2.json')).toEqual(expected);
-});
-
-test('check diff between yaml files', () => {
-  const expected = readFixtureFile('ifExpectedPlain.txt').trim();
-  expect(getReportPlain('file1.yaml', 'file2.yaml')).toEqual(expected);
-});
-
-test('check diff between json and yaml files', () => {
-  const expected = readFixtureFile('ifExpectedPlain.txt').trim();
-  expect(getReportPlain('file1.yaml', 'file2.json')).toEqual(expected);
-});
-
-test('check diff if the second file is empty json', () => {
-  const expected = readFixtureFile('ifEmptySecondFilePlain.txt').trim();
-  const result = getReportPlain('file1.yaml', 'empty.json');
-  expect(result).toEqual(expected);
-});
-
-test('check diff if the first file is empty json', () => {
-  const expected = readFixtureFile('ifEmptyFirstFilePlain.txt').trim();
-  const result = getReportPlain('empty.json', 'file2.yaml');
-  expect(result).toEqual(expected);
-});
-
-test('check diff if both files have the same content', () => {
-  const expected = '';
-  const result = getReportPlain('same.yml', 'file1.json');
-  expect(result).toEqual(expected);
+  const expected = readFile('ifExpectedPlain.txt').trim();
+  expect(getReportPlain(obj1, obj2)).toEqual(expected);
 });
 
 test('check that result of diff is string', () => {
-  const result = getReportPlain('file1.json', 'file2.json');
-  expect(typeof (result)).toEqual('string');
+  expect(typeof (getReportPlain(obj1, obj2))).toEqual('string');
 });

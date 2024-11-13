@@ -2,15 +2,15 @@ import getReportDefault from './formatDefault.js';
 import getReportPlain from './formatPlain.js';
 import getReportJson from './formatJson.js';
 
-const genDiff = (file1, file2, format) => {
-  const formatName = format.format;
-  if (formatName === 'plain') {
-    return getReportPlain(file1, file2, formatName);
+const isReportFormat = (obj1, obj2, format) => {
+  switch (format) {
+    case 'plain':
+      return getReportPlain(obj1, obj2);
+    case 'json':
+      return getReportJson(obj1, obj2);
+    default:
+      return getReportDefault(obj1, obj2);
   }
-  if (formatName === 'json') {
-    return getReportJson(file1, file2, formatName);
-  }
-  return getReportDefault(file1, file2);
 };
 
-export default genDiff;
+export default isReportFormat;
