@@ -6,7 +6,6 @@ const createBasis = (obj1, obj2) => {
   return sortedKeys.map((etalonKey) => {
     const has1 = Object.hasOwn(obj1, etalonKey);
     const has2 = Object.hasOwn(obj2, etalonKey);
-
     if (has1 && !has2) {
       return { type: 'removed', key: etalonKey, value: obj1[etalonKey] };
     } if (!has1 && has2) {

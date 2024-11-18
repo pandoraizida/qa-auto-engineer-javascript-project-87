@@ -10,28 +10,22 @@ const __dirname = path.dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFixtureFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-test('if format equal plain', () => {
-  const expected = readFixtureFile('ifExpectedPlain.txt').trim();
-  expect(genDiff('./__fixtures__/file1.json', './__fixtures__/file2.json', 'plain')).toEqual(expected);
+test.each([
+  ['json', 'plain', 'ifExpectedPlain.txt'],
+  ['json', 'json', 'ifExpectedJson.txt'],
+  ['json', 'stylish', 'ifExpected.txt'],
+  ['yaml', 'plain', 'ifExpectedPlain.txt'],
+  ['yaml', 'json', 'ifExpectedJson.txt'],
+  ['yaml', 'stylish', 'ifExpected.txt'],
+  ['yaml', 'kokoko', 'ifExpected.txt'],
+])('check comparison report for %s file with format %s', (fileExtension, format, expected) => {
+  const filePath1 = getFixturePath(`file1.${fileExtension}`);
+  const filePath2 = getFixturePath(`file2.${fileExtension}`);
+  expect(genDiff(filePath1, filePath2, format)).toEqual(readFixtureFile(expected));
 });
 
-test('if format equal json', () => {
-  const expected = readFixtureFile('ifExpectedJson.txt').trim();
-  expect(genDiff('./__fixtures__/file1.json', './__fixtures__/file2.json', 'json')).toEqual(expected);
-});
-
-test('if format is default', () => {
-  const expected = readFixtureFile('ifExpected.txt').trim();
-  expect(genDiff('./__fixtures__/file1.json', './__fixtures__/file2.json', 'stylish')).toEqual(expected);
-});
-
-test('if format is not equal plain or json', () => {
-  const expected = readFixtureFile('ifExpected.txt').trim();
-  expect(genDiff('./__fixtures__/file1.json', './__fixtures__/file2.json', 'kokoko')).toEqual(expected);
-});
-
-test('if format is missed', () => {
-  const expected = readFixtureFile('ifExpected.txt').trim();
-  const a = genDiff('./__fixtures__/file1.json', './__fixtures__/file2.json');
-  expect(a).toEqual(expected);
+test('check comparison report when format is missed', () => {
+  const filePath1 = getFixturePath('file1.json');
+  const filePath2 = getFixturePath('file3.yml');
+  expect(genDiff(filePath1, filePath2)).toEqual(readFixtureFile('ifExpected.txt'));
 });

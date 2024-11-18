@@ -2,8 +2,8 @@ import getReportDefault from './stylish.js';
 import getReportPlain from './plain.js';
 import getReportJson from './json.js';
 
-const getReportByFormat = (obj1, obj2, format) => {
-  switch (format) {
+const getReportByFormat = (obj1, obj2, reportFormat) => {
+  switch (reportFormat) {
     case 'plain':
       return getReportPlain(obj1, obj2);
     case 'json':
